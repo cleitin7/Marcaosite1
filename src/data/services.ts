@@ -7,7 +7,7 @@ export interface Service {
 export const services: Service[] = [
   {
     title: 'Geladeiras e Freezers',
-    description: 'Assistência técnica especializada e conserto de placas para Viking, Gorenje e outras marcas. Oferecemos diagnóstico rápido e soluções permanentes.',
+    description: 'Assistencia tecnica especializada em marcas como Viking , Gorenje , Samnsung, Lg  e outras marcas Importadas e nacionais , consertamos placas Oferecemos visita técnica , diagnostico rapido e soluçoes permanentes.',
     image: 'https://i.imgur.com/Fu6gfY6.png'
   },
   {
