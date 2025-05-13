@@ -14,9 +14,9 @@ const Footer: React.FC = () => {
               Soluções em assistência técnica de eletrodomésticos e refrigeração para sua casa ou empresa.
             </p>
             <div className="flex items-center gap-2">
-              <a 
-                href="https://www.instagram.com/refrigeracaocolonia" 
-                target="_blank" 
+              <a
+                href="https://www.instagram.com/refrigeracaocolonia"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="text-gray-400 hover:text-teal-300 transition-colors"
                 aria-label="Instagram"
@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
               <span className="text-gray-400">@refrigeracaocolonia</span>
             </div>
           </div>
-          
+
           {/* Services Column */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-teal-300">Serviços</h3>
@@ -45,7 +45,7 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-          
+
           {/* Contact Column */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-teal-300">Contato</h3>
@@ -54,8 +54,8 @@ const Footer: React.FC = () => {
                 <Clock size={20} className="text-teal-300 flex-shrink-0 mt-1" />
                 <div>
                   <p className="font-medium">Horário de Atendimento</p>
-                  <p className="text-gray-400">Segunda a Sexta: 8h às 18h</p>
-                  <p className="text-gray-400">Sábado: 8h às 12h</p>
+                  <p className="text-gray-400">Segunda a Sábado: 8:30 às 18h</p>
+                  <p className="text-gray-400">Domingo: Fechamos</p>
                 </div>
               </li>
               <li className="flex items-start gap-3">
@@ -74,21 +74,21 @@ const Footer: React.FC = () => {
               </li>
             </ul>
           </div>
-          
+
           {/* CTA Column */}
           <div>
             <h3 className="text-xl font-bold mb-4 text-teal-300">Fale Conosco</h3>
             <p className="mb-4">
               Fale agora com o Marcos e resolva seu problema com rapidez e eficiência.
             </p>
-            <WhatsAppButton 
-              text="Chamar no WhatsApp" 
+            <WhatsAppButton
+              text="Chamar no WhatsApp"
               fullWidth={true}
               className="mt-2"
             />
           </div>
         </div>
-        
+
         <div className="border-t border-gray-800 mt-12 pt-6 text-center text-gray-500 text-sm">
           <p>© {new Date().getFullYear()} Refrigeração Colônia. Todos os direitos reservados.</p>
         </div>
