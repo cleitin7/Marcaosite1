@@ -1,114 +1,50 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React from 'react';
+import { Star } from 'lucide-react';
 import { testimonials } from '../data/testimonials';
-import TestimonialCard from './TestimonialCard';
 
 const Testimonials: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-  const sectionRef = useRef<HTMLElement>(null);
-  const titleRef = useRef<HTMLHeadingElement>(null);
-  const dotsRef = useRef<HTMLDivElement>(null);
-
-  const next = () => {
-    setActiveIndex((prev) => (prev === testimonials.length - 1 ? 0 : prev + 1));
-  };
-
-  const prev = () => {
-    setActiveIndex((prev) => (prev === 0 ? testimonials.length - 1 : prev - 1));
-  };
-
-  const goTo = (index: number) => {
-    setActiveIndex(index);
-  };
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          titleRef.current?.classList.add('animate-fade-in');
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (titleRef.current) {
-      observer.observe(titleRef.current);
-    }
-
-    const interval = setInterval(() => {
-      next();
-    }, 8000);
-
-    return () => {
-      observer.disconnect();
-      clearInterval(interval);
-    };
-  }, []);
-
   return (
-    <section id="testimonials" ref={sectionRef} className="py-24 bg-gradient-to-b from-gray-900 to-black">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-16">
-          <h2 
-            ref={titleRef}
-            className="text-3xl md:text-4xl font-bold text-white opacity-0 transition-opacity duration-1000"
-          >
-            O que Nossos <span className="text-sky-400">Clientes</span> Dizem
-          </h2>
-          <p className="mt-4 text-gray-400 max-w-2xl mx-auto">
-            Confiança de residências e empresas em serviços de reparo confiáveis e de alta qualidade.
-          </p>
-        </div>
+    <section id="depoimentos" className="py-16 md:py-24">
+      <div className="container mx-auto px-4">
+        <h2 className="text-3xl md:text-4xl font-bold mb-12 text-center bg-clip-text text-transparent bg-gradient-to-r from-teal-300 to-blue-300">
+          Depoimentos
+        </h2>
         
-        <div className="relative max-w-4xl mx-auto">
-          <div className="overflow-hidden">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+          {testimonials.map((testimonial, index) => (
             <div 
-              className="flex transition-transform duration-500 ease-out"
-              style={{ transform: `translateX(-${activeIndex * 100}%)` }}
+              key={index}
+              className="bg-gray-800/50 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-700/50 transform hover:scale-[1.03] transition-all duration-300"
             >
-              {testimonials.map((testimonial, index) => (
-                <TestimonialCard 
-                  key={testimonial.id}
-                  testimonial={testimonial}
-                  isActive={index === activeIndex}
-                />
-              ))}
+              <div className="flex mb-3">
+                {Array.from({ length: 5 }).map((_, i) => (
+                  <Star 
+                    key={i} 
+                    size={18} 
+                    className="fill-yellow-400 text-yellow-400" 
+                  />
+                ))}
+              </div>
+              
+              <p className="text-gray-300 mb-4 italic">
+                "{testimonial.content}"
+              </p>
+              
+              <div className="flex items-center gap-3">
+                <div className="w-10 h-10 rounded-full bg-teal-500/20 flex items-center justify-center text-teal-300 font-bold">
+                  {testimonial.name.charAt(0)}
+                </div>
+                <div>
+                  <p className="font-medium text-white">
+                    {testimonial.name}
+                  </p>
+                  <p className="text-sm text-gray-400">
+                    {testimonial.location}
+                  </p>
+                </div>
+              </div>
             </div>
-          </div>
-          
-          <button
-            onClick={prev}
-            className="absolute left-0 top-1/2 -translate-y-1/2 -translate-x-4 md:-translate-x-12 bg-gray-800/80 text-white rounded-full p-2 opacity-70 hover:opacity-100 transition-opacity duration-300 focus:outline-none z-10"
-            aria-label="Depoimento anterior"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-            </svg>
-          </button>
-          <button
-            onClick={next}
-            className="absolute right-0 top-1/2 -translate-y-1/2 translate-x-4 md:translate-x-12 bg-gray-800/80 text-white rounded-full p-2 opacity-70 hover:opacity-100 transition-opacity duration-300 focus:outline-none z-10"
-            aria-label="Próximo depoimento"
-          >
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-            </svg>
-          </button>
-          
-          <div ref={dotsRef} className="flex justify-center mt-8 space-x-2">
-            {testimonials.map((_, index) => (
-              <button
-                key={index}
-                onClick={() => goTo(index)}
-                className={`w-3 h-3 rounded-full transition-all duration-300 ${
-                  index === activeIndex
-                    ? 'bg-sky-400 scale-125'
-                    : 'bg-gray-600 hover:bg-gray-500'
-                }`}
-                aria-label={`Ir para depoimento ${index + 1}`}
-              />
-            ))}
-          </div>
+          ))}
         </div>
       </div>
     </section>

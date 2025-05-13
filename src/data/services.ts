@@ -1,47 +1,28 @@
-import { Refrigerator, Construction as AirConditioner, Loader, Microwave, CircuitBoard, Package2 } from 'lucide-react';
-import { Service } from '../types';
+export interface Service {
+  title: string;
+  description: string;
+  image: string;
+}
 
 export const services: Service[] = [
   {
-    id: 1,
-    title: 'Refrigeradores e Freezers',
-    description: 'Reparo especializado em unidades de refrigeração, incluindo marcas importadas como Viking e Gorenje.',
-    icon: Refrigerator,
-    specialization: 'Viking, Gorenje, Sub-Zero, Thermador, LG'
+    title: 'Geladeiras e Freezers',
+    description: 'Assistência técnica especializada e conserto de placas para Viking, Gorenje e outras marcas. Oferecemos diagnóstico rápido e soluções permanentes.',
+    image: 'https://i.imgur.com/Fu6gfY6.png'
   },
   {
-    id: 2,
-    title: 'Ar Condicionado',
-    description: 'Instalação, manutenção e recarga de gás para ar condicionado split e janela de todas as marcas.',
-    icon: AirConditioner,
-    specialization: 'Daikin, Mitsubishi, Carrier, Trane, Fujitsu'
+    title: 'Ar-condicionado',
+    description: 'Instalação, manutenção e conserto de sistemas split e janela com peças originais. Serviço completo para garantir melhor eficiência energética.',
+    image: 'https://imgs.search.brave.com/FnQjxk6j-phNHw9pVZo2tcV20iB36ibWa1sNUAY9p9w/rs:fit:500:0:0:0/g:ce/aHR0cHM6Ly9kZXNj/dWJyYW9xdWVlLmNv/bS5ici93cC1jb250/ZW50L3VwbG9hZHMv/MjAyNS8wMy8xTU0t/MjkxMS53ZWJw'
   },
   {
-    id: 3,
-    title: 'Máquinas de Lavar e Secar',
-    description: 'Reparo profissional para todos os tipos de lavadoras, secadoras e lava e seca com atendimento rápido.',
-    icon: Loader,
-    specialization: 'Miele, Bosch, LG, Samsung, Whirlpool'
-  },
-  {
-    id: 4,
     title: 'Micro-ondas',
-    description: 'Diagnóstico e reparo especializado para todos os tipos de micro-ondas, incluindo modelos de bancada e embutir.',
-    icon: Microwave,
-    specialization: 'Panasonic, Sharp, Bosch, GE, Samsung'
+    description: 'Reparo de painéis, trocas de peças e soluções rápidas. Atendimento especializado para restaurar o funcionamento completo do seu equipamento.',
+    image: 'https://imgs.search.brave.com/OMjl1oxocuUJZwkcCrPQAroU6GFGBu6VA8Jdv9HgH3A/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly93d3cu/bGVhay5wdC93cC1j/b250ZW50L3VwbG9h/ZHMvMjAyNS8wNS9t/aWNyby1vbmRhcy1s/aWRsLTEtZTE3NDY3/MDUzNzk0MzAtMTA2/OHg1ODIuanBn'
   },
   {
-    id: 5,
-    title: 'Reparo de Placas Eletrônicas',
-    description: 'Reparo especializado de placas eletrônicas e módulos de controle para todas as marcas de eletrodomésticos.',
-    icon: CircuitBoard,
-    specialization: 'Módulos de controle, placas de display, circuitos de potência'
-  },
-  {
-    id: 6,
-    title: 'Peças Originais',
-    description: 'Acesso a peças de reposição originais para todas as principais marcas, garantindo reparos confiáveis e duradouros.',
-    icon: Package2,
-    specialization: 'Peças originais para todas as marcas'
+    title: 'Máquina de Lavar e Lava e Seca',
+    description: 'Diagnóstico técnico completo e reparo com garantia. Solucionamos problemas mecânicos e eletrônicos para estender a vida útil do seu equipamento.',
+    image: 'https://imgs.search.brave.com/hAzhetQ9NnUw9C0BAaE7oiOBgYw8esrU75tj5iertA4/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly9zMi10/ZWNodHVkby5nbGJp/bWcuY29tL1FFVHo1/Vm9iWEN6ZW1Za2Ns/VGUzRVhjbmIxOD0v/MHgwOjEyODB4NzIw/Lzk4NHgwL3NtYXJ0/L2ZpbHRlcnM6c3Ry/aXBfaWNjKCkvaS5z/My5nbGJpbWcuY29t/L3YxL0FVVEhfMDhm/YmY0OGJjMDUyNDg3/Nzk0M2ZlODZlNDMw/ODdlN2EvaW50ZXJu/YWxfcGhvdG9zL2Jz/LzIwMjQvYi9BLzZ0/cGhmM1FiS2xVUXJV/TFl6RTRnL2Rlc2ln/bi1zZW0tbm9tZS0y/MDI0LTExLTE3dDA4/MTc1OS44OTkuanBn'
   }
 ];
